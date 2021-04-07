@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="mt-4 mb-4 text-center">{% block title %} 🐸 Te sapearon? {% endblock %}</h1>
+
+    <form id="phoneForm" class="align-items-center">
+        <div class="col-auto">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                <div class="input-group-text">+57</div>
+                </div>
+                <input type="tel" class="form-control" id="phone" placeholder="Número de telefono" value="{{ request.form['phone'] }}">  
+            </div>
+        </div>
+        <div class="col-auto">
+            <button id="submit_btn" class="btn btn-dark btn-lg btn-block mb-4" type="submit" enabled>
+                Verificar
+            </button>
+        </div>
+    </form>
+
+    <div id="results" class="jumbotron d-none">
+        <h1 id="result-title" class="text-center">--</h1>
+        <p id="result-text" class="lead text-center">--</p>
+        <div id="result-info" class="d-none">
+        <hr class="my-4">
+        <p class="text-center">Ya que estos datos se publicaron de forma gratuita en un foro abierto de internet, es muy probable que en el futuro parte de la información sea utilizada para realizar estafas o acosar en internet. Te sugerimos que tomes precauciones en caso de recibir llamadas sospechosas.</p>
+        <p class="text-center lead">
+          <a class="btn btn-dark btn-lg" href="/info" role="button">Saber más</a>
+        </p>
+        </div>
+    </div>
+{% endblock %}
