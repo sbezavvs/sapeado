@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
     <h1 class="mt-4 mb-4 text-center">{% block title %} 🐸 Te sapearon? {% endblock %}</h1>
 
     <form id="phoneForm" class="align-items-center">
@@ -20,8 +21,8 @@
     </form>
 
     <div id="results" class="jumbotron d-none">
-        <h1 id="result-title" class="text-center">--</h1>
-        <p id="result-text" class="lead text-center">--</p>
+        <h1 id="result-title" class="text-center"></h1>
+        <p id="result-text" class="lead text-center"></p>
         <div id="result-info" class="d-none">
         <hr class="my-4">
         <p class="text-center">Ya que estos datos se publicaron de forma gratuita en un foro abierto de internet, es muy probable que en el futuro parte de la información sea utilizada para realizar estafas o acosar en internet. Te sugerimos que tomes precauciones en caso de recibir llamadas sospechosas.</p>
@@ -29,5 +30,12 @@
           <a class="btn btn-dark btn-lg" href="/info" role="button">Saber más</a>
         </p>
         </div>
+    </div>
+
+    <div class="alert alert-success mb-4" role="alert">
+        <h4 class="alert-heading">¿Qué es esto?</h4>
+        <p>Esta herramienta permite consultar si su información aparece en la filtración de datos de Facebook recientemente confirmada en abril de 2021. Los datos corresponden a información pública de perfiles creados hasta 2019 y sus telefonos privados.</p>
+        <hr>
+        <p class="mb-0"><b>Este sitio web no recolecta datos personales.</b></p>
     </div>
 {% endblock %}
