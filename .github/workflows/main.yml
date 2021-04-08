@@ -1,0 +1,35 @@
+# This is a basic workflow to help you get started with Actions
+
+name: GAE Auto Deploy
+
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Publish app to Google App Engine
+        # You may pin to the exact commit or the version.
+        # uses: zxyle/publish-gae-action@647a5e5538829de31fdfaad8de523573c417139f
+        uses: zxyle/publish-gae-action@v2.3.0
+        with:
+          # The service account email which will be used for authentication.
+          service_account_email: ${{ secrets.GCP_SA_EMAIL }}
+          # The service account key which will be used for authentication.
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          # GAE project id
+          project_id: ${{ secrets.PROJECT_ID }}
